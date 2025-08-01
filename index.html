@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--importe de fontes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <!--Links css-->
+    <link rel="stylesheet" href="css/main.css">
+    <!--Scripts js-->
+    <script type="module" defer src="js/main.js"></script>
+
+    <title>Flaguinho</title>
+</head>
+<body>
+   <h1>Flaguinho</h1>
+
+    <div id="bandeiraGrid"></div>
+
+        <p>Tentativas restantes: <span id="tentativasRestantes">6</span></p>
+
+            <div class="autocomplete-container">
+                <input type="text" id="resposta" placeholder="Digite o nome do país" autocomplete="off" />
+                <div id="autocomplete-results" class="autocomplete-items"></div>
+            </div>
+
+            <button id="verificar">Verificar</button>
+            <ul id="historico"></ul>
+            <p id="dica"></p>
+
+    <div id="telaFinal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h2 id="telaFinalTitulo"></h2>
+            <div id="resultadoEmoji"></div>
+            <p><em>Resultado copiado para a área de transferência!</em></p>
+            <button id="botaoJogarNovamente">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <div class="theme-switcher">
+    <span>☀️</span>
+    <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider round"></span>
+    </label>
+    <span>🌙</span>
+</div>
+
+</body>
+</html>

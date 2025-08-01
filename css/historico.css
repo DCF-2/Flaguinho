@@ -1,0 +1,45 @@
+/* css/historico.css */
+
+#historico {
+    list-style: none;
+    padding: 0;
+    width: 450px;
+    margin-top: 1.5rem;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+#historico li {
+    display: grid;
+    grid-template-columns: 2fr 1fr 0.5fr 0.7fr; /* Ajuste das colunas */
+    gap: 5px;
+    width: 100%;
+}
+
+#historico li div {
+    background-color: var(--cor-container);
+    color: var(--cor-texto);
+    padding: 12px;
+    text-align: center;
+    font-weight: 700;
+    border: 2px solid var(--cor-borda);
+    transition: background-color .3s, border-color .3s, color .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#historico li .bloco-pais {
+    border-radius: 8px 0 0 8px;
+    text-transform: uppercase;
+}
+
+#historico li .bloco-percentual {
+    border-radius: 0 8px 8px 0;
+}
+
+#historico li.acerto div {
+    background-color: var(--cor-sucesso);
+    color: #121212;
+    border-color: var(--cor-sucesso);
+}

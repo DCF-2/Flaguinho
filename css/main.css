@@ -1,0 +1,122 @@
+/* css/main.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+@import url('game.css');
+@import url('autocomplete.css');
+@import url('historico.css');
+@import url('modal.css');
+
+:root {
+    --cor-fundo: #f4f4f9;
+    --cor-texto: #333;
+    --cor-primaria: #4a90e2;
+    --cor-sucesso: #50e3c2;
+    --cor-aviso: #f5a623;
+    --cor-erro: #d0021b;
+    --cor-container: #ffffff;
+    --cor-borda: #ddd;
+    --sombra-container: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme {
+    --cor-fundo: #121212;
+    --cor-texto: #e0e0e0;
+    --cor-primaria: #bb86fc;
+    --cor-sucesso: #03dac6;
+    --cor-aviso: #f5a623;
+    --cor-erro: #cf6679;
+    --cor-container: #1e1e1e;
+    --cor-borda: #444;
+    --sombra-container: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1 {
+    color: var(--cor-primaria);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--cor-primaria);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #357abd;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+.theme-switcher .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+    margin: 0 10px;
+}
+.theme-switcher .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.theme-switcher .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 26px;
+}
+.theme-switcher .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: var(--cor-primaria);
+}
+input:checked + .slider:before {
+    transform: translateX(24px);
+}

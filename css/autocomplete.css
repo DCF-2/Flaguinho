@@ -1,0 +1,55 @@
+/* css/autocomplete.css */
+
+.autocomplete-container {
+    position: relative;
+    display: inline-block;
+    width: 250px;
+}
+
+#resposta {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    background-color: var(--cor-container);
+    color: var(--cor-texto);
+    transition: border-color 0.3s ease, background-color .3s, color .3s;
+}
+
+#resposta:focus {
+    border-color: var(--cor-primaria);
+    outline: none;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid var(--cor-borda);
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--cor-container);
+    border-radius: 0 0 8px 8px;
+    max-height: 180px;
+    overflow-y: auto;
+    box-shadow: var(--sombra-container);
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--cor-borda);
+    text-align: left;
+}
+
+.autocomplete-items div:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-items div:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+}
