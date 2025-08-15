@@ -1,0 +1,41 @@
+/* css/final.css */
+
+#final-actions {
+    margin-top: 2rem;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.final-actions-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.btn-final, .btn-bonus {
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid var(--cor-borda);
+    background-color: var(--cor-container);
+    color: var(--cor-texto);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-final:hover, .btn-bonus:hover {
+    transform: translateY(-2px);
+}
+
+.btn-bonus {
+    grid-column: 1 / -1; /* Ocupa a largura toda */
+    background-color: var(--cor-sucesso);
+    color: #121212;
+    border-color: var(--cor-sucesso);
+    font-size: 1.1rem;
+}

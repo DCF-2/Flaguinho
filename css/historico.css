@@ -1,45 +1,75 @@
 /* css/historico.css */
 
+/* Definição do layout em grelha que será usado tanto pelo cabeçalho como pela lista */
+.historico-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr 1fr; 
+    gap: 5px;
+    width: 600px; 
+    margin-top: 1.5rem;
+}
+
+#historico-header .header-item {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+/* Estilos gerais da lista */
 #historico {
     list-style: none;
     padding: 0;
-    width: 450px;
-    margin-top: 1.5rem;
-    border-collapse: separate;
-    border-spacing: 0 8px;
+    margin-top: 1rem;
 }
 
+/* Layout em grelha para cada linha da lista */
 #historico li {
     display: grid;
-    grid-template-columns: 2fr 1fr 0.5fr 0.7fr; /* Ajuste das colunas */
     gap: 5px;
     width: 100%;
+    margin-bottom: 8px;
 }
 
+/* Célula individual dentro da grelha */
 #historico li div {
     background-color: var(--cor-container);
     color: var(--cor-texto);
     padding: 12px;
     text-align: center;
-    font-weight: 700;
+    font-weight: 500;
     border: 2px solid var(--cor-borda);
     transition: background-color .3s, border-color .3s, color .3s;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 4px;
 }
 
-#historico li .bloco-pais {
-    border-radius: 8px 0 0 8px;
-    text-transform: uppercase;
-}
+/* --- Layout Específico para o MODO COUNTRYLE --- */
+.countryle-mode { width: 600px; }
+.countryle-mode li { grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr 1fr; }
 
-#historico li .bloco-percentual {
-    border-radius: 0 8px 8px 0;
-}
-
-#historico li.acerto div {
+/* --- Layout Específico para o MODO FLAGUINHA --- */
+.flagle-mode { width: 500px; }
+.flagle-mode li { grid-template-columns: 2fr 1.5fr 1fr 1fr; } /* 4 colunas */
+.flagle-mode li.acerto div {
     background-color: var(--cor-sucesso);
     color: #121212;
-    border-color: var(--cor-sucesso);
+}
+
+#historico li div.cor-acerto {
+    background-color: var(--cor-sucesso);
+    color: #121212; 
+}
+
+#historico li div.cor-quase {
+    background-color: var(--cor-aviso);
+    color: #121212;
+}
+#historico li div.cor-erro {
+    background-color: var(--cor-erro);
+    color: white;
 }

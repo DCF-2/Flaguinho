@@ -33,3 +33,18 @@
 p {
     margin: 0.5rem 0;
 }
+
+#map-container {
+    width: 600px; /* Mesma largura do histórico */
+    height: 300px;
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--sombra-container);
+    overflow: hidden; /* Garante que o mapa respeite as bordas arredondadas */
+    display: none; /* Começa escondido */
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}

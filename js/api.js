@@ -1,7 +1,7 @@
 // js/api.js
 
 // Adicionamos 'translations' aos campos que pedimos para a API
-const COUNTRIES_API_URL = 'https://restcountries.com/v3.1/all?fields=name,cca2,latlng,translations';
+const COUNTRIES_API_URL = 'https://restcountries.com/v3.1/all?fields=name,cca2,latlng,translations,region,population';
 
 export async function getCountries() {
     try {
@@ -14,25 +14,27 @@ export async function getCountries() {
         // Processa os dados da API para o nosso formato padrão
         const countries = data
             .map(country => {
-                // Pega a tradução para português. Se não existir, usa o nome comum em inglês.
                 const nomeEmPortugues = country.translations.por?.common || country.name.common;
+                const latitude = country.latlng[0];
 
                 return {
                     codigo: country.cca2.toLowerCase(),
                     nome: nomeEmPortugues.toLowerCase(),
-                    latitude: country.latlng[0],
-                    longitude: country.latlng[1]
+                    latitude: latitude,
+                    longitude: country.latlng[1],
+                    continente: country.region,
+                    populacao: country.population,
+                    hemisferio: latitude >= 0 ? 'norte' : 'sul' // Calcula o hemisfério
                 };
             })
             .filter(country => 
-                // Filtra para remover entradas que não queremos no jogo
-                country.codigo !== 'aq' && // Remove Antártida (sem bandeira)
-                country.latitude && country.longitude // Garante que tem coordenadas
+                country.codigo !== 'aq' &&
+                country.latitude && country.longitude &&
+                country.continente && country.populacao
             )
-            // Ordena a lista de países em ordem alfabética
             .sort((a, b) => a.nome.localeCompare(b.nome)); 
 
-        console.log("Países carregados e traduzidos:", countries);
+        console.log("Países carregados com todos os dados:", countries);
         return countries;
 
     } catch (error) {

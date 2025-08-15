@@ -49,3 +49,14 @@
 #botaoJogarNovamente:hover {
     background-color: #48c9b0;
 }
+
+#link-maps {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #4285F4; /* Cor do Google */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+}
